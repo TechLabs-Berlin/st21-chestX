@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const Data = require('./app/models/dataSchema');
 
+
 // set port, listen for requests
 const PORT = process.env.PORT || 8081;
 
@@ -35,6 +36,17 @@ mongoose.connect('mongodb://localhost:27017/chest-X', {useNewUrlParser: true, us
 
 app.get('/', (req, res)=>{
     res.send('chest-X app')
+});
+
+// this is a demonstration of how we can communicate with python files from DS/AI groups
+// you can paste the below url in the browser
+// http://localhost:8081/name?firstname=Ram&lastname=Sharma
+app.get('/name', (req, res)=>{
+    let spawn = require('child_process').spawn
+    let process = spawn('python',['../python-files/hello.py', req.query.firstname, req.query.lastname]);
+    process.stdout.on('data', (data)=>{
+        res.send(data.toString());
+    })
 })
 
 app.listen(PORT, ()=>{
