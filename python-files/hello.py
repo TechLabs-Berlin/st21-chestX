@@ -5,4 +5,4 @@ print('Last name: ', + sys.argv[2])
 
 #  this is a demonstration of how we can communicate with python files from DS/AI groups
 #  you can paste the below url in the browser
-#  http://localhost:8081/name?firstname=Ram&lastname=Sharma
+#  http://localhost:8081/name?firstname=Fatih Mehmet&lastname=Nuroglu

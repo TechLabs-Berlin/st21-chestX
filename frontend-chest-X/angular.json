@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "chest-X": {
+    "frontend-chest-X": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/chest-X",
+            "outputPath": "dist/frontend-chest-X",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "chest-X:build"
+            "browserTarget": "frontend-chest-X:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "chest-X:build:production"
+              "browserTarget": "frontend-chest-X:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "chest-X:build"
+            "browserTarget": "frontend-chest-X:build"
           }
         },
         "test": {
@@ -116,18 +116,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "chest-X:serve"
+            "devServerTarget": "frontend-chest-X:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "chest-X:serve:production"
+              "devServerTarget": "frontend-chest-X:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "chest-X",
+  "defaultProject": "frontend-chest-X",
   "cli": {
     "analytics": "eea8aee9-1aef-4678-bae0-7e8c4c503d9e"
   }

@@ -7,7 +7,7 @@ const methodOverride = require('method-override')
 
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-const Data = require('./app/models/dataSchema');
+const xRayData = require('./app/models/dataSchema');
 
 
 // set port, listen for requests
@@ -37,6 +37,14 @@ mongoose.connect('mongodb://localhost:27017/chest-X', {useNewUrlParser: true, us
 app.get('/', (req, res)=>{
     res.send('chest-X app')
 });
+
+//creating a sample data to save in the database
+const sampleData = new xRayData({name: 'Bolaji Koyi', file: 'jpeg', description: 'Sample file to test the datadase'});
+sampleData.save()
+    .then(()=> console.log('New data successfully saved in the database'))
+    .catch(()=> console.log('ERROR!! unable to save data in the database'))
+
+
 
 // this is a demonstration of how we can communicate with python files from DS/AI groups
 // you can paste the below url in the browser

@@ -23,12 +23,12 @@ schema.method('toJoin', ()=>{
 
 
 
-const Data = mongoose.model('data', schema);
+const xRayData = mongoose.model('data', schema);
 
-const firstData = new Data({name: 'Bolaji', file: 'jpeg', description: 'Sample file to test the datadase'});
+const firstData = new xRayData({name: 'Bolaji', file: 'jpeg', description: 'Sample file to test the datadase'});
 firstData.save()
     .then(()=> console.log('Data successfully saved in the database'))
     .catch(()=> console.log('ERROR!! unable to save data in the database'))
 
 
-module.exports = Data;
+module.exports = xRayData;
