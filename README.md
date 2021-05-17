@@ -1,5 +1,5 @@
 # st21-chestX
-<b>ChestX</b> is a <b>TechLabs Berlin</b> project that aims to detect COVID-19 infection by processing chest X-ray images. To support medical decission making, the ChestX team wants to applying AI technics for object detection & classification, as well as data science methodes. Metadata provieded alongside the X-ray images can be analysed to providing doctors with more meaningful diagnostic assistance.
+<b>ChestX</b> is a <b>TechLabs Berlin</b> project that aims to detect COVID-19 infection by processing chest X-ray images. To support medical decision making, the ChestX team wants to apply AI techniques for object detection & classification, as well as data science methods. Metadata provided alongside the X-ray images can be analysed to provide doctors with more meaningful diagnostic assistance.
 
 ## Data set
 The COVID-19 image data collection is a public open dataset of chest X-ray and CT images of patients which are positive or suspected of COVID-19 or other viral and bacterial pneumonias. The project was started and is maintained by Joseph Paul Cohen, Paul Morrison, and Lan Dao from the University of Montreal.
@@ -11,7 +11,7 @@ This COVID-19 data set is linked as submodule to this git project. <br>Run the f
 ```git submodule update --remote --merge```
 
 ## Related research & solutions 
-Referencingthe COVID-19 image data collection reposetory, some ML models were developed alongside the data collection process and constitute the main purpose of this research project. 
+Referencing the COVID-19 image data collection repository, some ML models were developed alongside the data collection process and constitute the main purpose of this research project. 
 
 - https://github.com/aildnont/covid-cxr
 
