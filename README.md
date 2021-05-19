@@ -11,18 +11,22 @@ This COVID-19 data set is linked as submodule to this git project. <br>Run the f
 ```git submodule update --remote --merge```
 
 ## Related research & solutions 
-Referencing the COVID-19 image data collection repository, some ML models were developed alongside the data collection process and constitute the main purpose of this research project. 
-
-- https://github.com/aildnont/covid-cxr
+Referencing the COVID-19 image data collection repository, some ML models were developed alongside the data collection process and constitute the main purpose of this research project. A valuble source is the repo from Linda Wang and her team. The repo contains pre-trained models.
+- [https://github.com/lindawangg/COVID-Net/](https://github.com/lindawangg/COVID-Net/)
 
 Other noteworthy projects using this data set:
-- https://github.com/Thehunk1206/Covid-19-covidcnn
-- https://covid-scanner.herokuapp.com/
-- https://colab.research.google.com/drive/1A-gIZ6Xp-eh2b4CGS6BHH7-OgZtyjeP2
+- [https://github.com/aildnont/covid-cxr](https://github.com/aildnont/covid-cxr)
+- [Covid-19-covid CNN model - Github repo](https://github.com/Thehunk1206/Covid-19-covidcnn)
+- [Covid-scanner Web-App](https://covid-scanner.herokuapp.com/)
+- [Colab Notebook](https://colab.research.google.com/drive/1A-gIZ6Xp-eh2b4CGS6BHH7-OgZtyjeP2)
 
 Noteworthy papers & research:
 - https://arxiv.org/abs/2003.11597
 - WIP ...
+
+Ongoing Kaggle competition based on another data set:
+- https://www.kaggle.com/c/siim-covid19-detection/data
+The images are available in a medical image format - DICOM or /*.dcm
 
 ## Team members
 - DS | Heike
