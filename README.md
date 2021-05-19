@@ -56,8 +56,8 @@ The images are available in a medical image format - DICOM or /*.dcm
 
 
 ## Important TechLabs links
-- Miro: miro.com/app/board/o9J_lGWlTNE=/
-- GitHub: github.com/TechLabs-Berlin/st21-chestX
+- Miro: [miro.com/app/board/o9J_lGWlTNE=/](miro.com/app/board/o9J_lGWlTNE=/)
+- GitHub: [github.com/TechLabs-Berlin/st21-chestX](github.com/TechLabs-Berlin/st21-chestX)
 - CoLab: [from Fabian](https://colab.research.google.com/drive/1K3VODIYNN8ormpYs7UDluaWCloU6Mpn0?authuser=1#scrollTo=dtsd3u3oE5Tg)
 - [Project Weekly Subteams Updates Doc](https://docs.google.com/document/d/1TkIcdisPCkTXx0eKFZnw-JZAVFeyc5wFi7jbVkmOwUY/edit)
 - [Project Weekly Submission Form](https://techlabsorg.typeform.com/to/m9cEYlR6)
