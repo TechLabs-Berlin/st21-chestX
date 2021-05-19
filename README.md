@@ -21,7 +21,8 @@ Other noteworthy projects using this data set:
 - [Colab Notebook](https://colab.research.google.com/drive/1A-gIZ6Xp-eh2b4CGS6BHH7-OgZtyjeP2)
 
 Noteworthy papers & research:
-- https://arxiv.org/abs/2003.11597
+- [https://arxiv.org/abs/2003.11597](https://arxiv.org/abs/2003.11597)
+- [Histogramm Hack on CXR classification](https://melaniesoek0120.medium.com/covid-19-hack-chest-x-ray-image-classification-with-neural-network-59cd031e9b0d)
 - WIP ...
 
 Ongoing Kaggle competition based on another data set:
