@@ -29,7 +29,7 @@ Ongoing Kaggle competition based on another data set:
 - https://www.kaggle.com/c/siim-covid19-detection/data
 The images are available in a medical image format - DICOM or /*.dcm
 
-# Running the project on localhost
+## Running the project on localhost
 After clonning the repository, and having the complete project files saved in a directory on you computer, open the project folder with your desired editor.
 
 To run the frontend part of the project:
@@ -38,7 +38,7 @@ To run the frontend part of the project:
 - To check the version of node.js you have installed, type: ```node -v```
 - Install angular globally: ```npm install -g @angular/cli```
 - To install all the frontend dependencies: ```npm install```
-- To open the frontend on localhost: ```ng serve```
+- To open the frontend on localhost: ```ng serve --port 4200```
 
 Setting up the database 
 - Install [MongoDB](https://zarkom.net/blogs/how-to-install-mongodb-for-development-in-windows-3328) on windows
@@ -75,6 +75,9 @@ To run the backend part of the project:
 - PyCharm (or other IDE - personal choice)
 - venv
 - WIP ...
+- Angular
+- Node.js and Express
+- MongoDB and Mongoose
 
 
 ## Important TechLabs links

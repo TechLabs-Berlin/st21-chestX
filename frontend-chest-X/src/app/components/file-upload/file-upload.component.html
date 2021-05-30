@@ -1,0 +1,13 @@
+
+<div class="row border p-2" id="upload-container">
+  <div class="col-10">
+    <label for="file-upload" class="btn btn-default p-0">
+      <input class="border" type="file" name="x-ray-image" id="file-upload" accept="image/*" (change)="selectFile($event)">
+    </label>
+  </div>
+  <div class="col-2">
+    <button class="btn btn-success btn-sm" [disabled]='!selectedFiles' (click)='upload()'>
+      upload
+    </button>
+  </div>
+</div>
