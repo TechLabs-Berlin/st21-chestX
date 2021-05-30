@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { BackendApiService } from 'src/app/services/backend-api.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ThisReceiver } from '@angular/compiler';
+
 
 @Component({
   selector: 'app-file-upload',
@@ -10,12 +10,15 @@ import { ThisReceiver } from '@angular/compiler';
   styleUrls: ['./file-upload.component.scss']
 })
 export class FileUploadComponent implements OnInit {
+  // @ViewChild('reset') reset!:ElementRef;
 
   selectedFiles?: FileList;
   currentFile?: File;
   progress = 0;
   message = '';
   fileInfo?: Observable<any>;
+  // resetValue: any;
+  resetBtn = false;
 
   constructor(private fileUploadService: BackendApiService) { }
 
@@ -27,6 +30,13 @@ export class FileUploadComponent implements OnInit {
     // const newFile = event.target.files[0].name;
     // const fileType = newFile.split('.')[1];
       this.selectedFiles = event.target.files;
+    }
+    inputReset(reset: any): void{
+      this.currentFile = undefined;
+      this.selectedFiles = undefined;
+      reset.value = '';
+      this.message = '';
+
     }
 
   upload(): void {
@@ -53,6 +63,7 @@ export class FileUploadComponent implements OnInit {
             }
             else{
               this.message = 'File cannot be uploaded!';
+              this.resetBtn = true;
             }
             this.currentFile = undefined;
           }
@@ -60,6 +71,12 @@ export class FileUploadComponent implements OnInit {
       }
       this.selectedFiles = undefined;
     }
+  }
+
+  // tslint:disable-next-line: use-lifecycle-interface
+  ngAfterViewInit(): void{
+    // this.resetValue = this.reset.nativeElement.value;
+    // console.log(this.reset.nativeElement.value);
   }
 
 }

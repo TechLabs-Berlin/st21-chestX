@@ -1,8 +1,24 @@
 input[name='x-ray-image']{
-  width: 500px;
+   width: 150%;
+    text-align: center;
 }
 
 #upload-container{
   width: 80%;
   margin: 0 auto;
+}
+#reset{
+  margin-left: 10px;
+}
+.buttons{
+  display: flex;
+  justify-content: flex-end;
+}
+.upload-error-msg{
+  text-align: center;
+  margin: 20px auto;
+  padding: 10px 30px;
+  width: fit-content;
+  background-color: bisque;
+  border-radius: 3px;
 }
