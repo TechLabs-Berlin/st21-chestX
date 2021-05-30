@@ -34,6 +34,7 @@ export class FileUploadComponent implements OnInit {
     inputReset(reset: any): void{
       this.currentFile = undefined;
       this.selectedFiles = undefined;
+      this.resetBtn = false;
       reset.value = '';
       this.message = '';
 
@@ -45,6 +46,7 @@ export class FileUploadComponent implements OnInit {
       const file: File | null = this.selectedFiles.item(0);
       if (file){
         this.currentFile = file;
+        this.resetBtn = true;
         this.fileUploadService.upload(this.currentFile).subscribe(
           (event: any) => {
             if (event.type === HttpEventType.UploadProgress){

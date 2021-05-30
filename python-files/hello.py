@@ -1,5 +1,6 @@
 import sys
 print('Output from Python')
+# print("I couldn't get the name out though..LOL")
 print('First name: ', + sys.argv[1])
 print('Last name: ', + sys.argv[2])
 

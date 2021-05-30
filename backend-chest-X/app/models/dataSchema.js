@@ -1,13 +1,16 @@
 const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema({
-name: {
+    name: {
         type: String,
     },
-    file: {
+    email: {
         type: String,
     },
-    description: {
+    fileType: {
+        type: String,
+    },
+    url: {
         type: String,
     }
 
@@ -15,20 +18,20 @@ name: {
     {timestamps: true}
 );
 
-schema.method('toJoin', ()=>{
-    const {__v, _id, ...object} = this.toObject();
-    object.id = _id;
-    return object;
-});
+// schema.method('toJoin', ()=>{
+//     const {__v, _id, ...object} = this.toObject();
+//     object.id = _id;
+//     return object;
+// });
 
 
 
-const xRayData = mongoose.model('data', schema);
+const xRayFile = mongoose.model('patientInfo', schema);
 
-const firstData = new xRayData({name: 'Bolaji', file: 'jpeg', description: 'Sample file to test the datadase'});
+const firstData = new xRayFile({name: 'Bolaji Koyi', email: 'bolaji.koyi@yahoo.com', fileType: 'jpeg', url: 'http://localhost:8081/files/image.jpeg'});
 firstData.save()
     .then(()=> console.log('Data successfully saved in the database'))
     .catch(()=> console.log('ERROR!! unable to save data in the database'))
 
 
-module.exports = xRayData;
+module.exports = xRayFile;

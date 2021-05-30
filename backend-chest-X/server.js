@@ -4,10 +4,12 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const methodOverride = require('method-override')
 
+global.__basedir = __dirname;
+
 
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-const xRayData = require('./app/models/dataSchema');
+const xRayFile = require('./app/models/dataSchema');
 
 
 // set port, listen for requests
@@ -19,11 +21,14 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+const initRoutes = require('./app/routes/xRayFile.routes')
+
 // parse requests of content-type - application/json
-app.use(bodyParser.json());
+app.use(express.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.urlencoded({extended: true}));
+initRoutes(app);
 
 mongoose.connect('mongodb://localhost:27017/chest-X', {useNewUrlParser: true, useUnifiedTopology: true})
 .then(()=>{
@@ -39,10 +44,10 @@ app.get('/', (req, res)=>{
 });
 
 //creating a sample data to save in the database
-const sampleData = new xRayData({name: 'Bolaji Koyi', file: 'jpeg', description: 'Sample file to test the datadase'});
-sampleData.save()
-    .then(()=> console.log('New data successfully saved in the database'))
-    .catch(()=> console.log('ERROR!! unable to save data in the database'))
+// const sampleData = new xRayFile({name: 'Bolaji Koyi', file: 'jpeg', description: 'Sample file to test the database'});
+// sampleData.save()
+//     .then(()=> console.log('New data successfully saved in the database'))
+//     .catch(()=> console.log('ERROR!! unable to save data in the database'))
 
 
 
