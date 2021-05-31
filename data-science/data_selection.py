@@ -11,11 +11,14 @@ def data_selection(df, img_type = ['PA', 'AP', 'AP Supine']):
 
     for t in img_type:
         selected_samples_nr += df['view'].value_counts()[t]
-        x = df.loc[(df['view']==t)]
-        df_select = df_select.append(x)
+        df_select = df_select.append(df.loc[(df['view']==t)])
 
     rejected_samples_nr = df['view'].value_counts().sum() - selected_samples_nr
     print("selected samples:", selected_samples_nr)
     print("rejected samples:",rejected_samples_nr)
     assert df_select.shape[0] == selected_samples_nr, 'Mismatching number of selected samples.'
     return df_select
+
+if __name__ == "__main__":
+    df = pd.read_csv(os.path.abspath('.')+'/data/metadata.csv')
+    data_selection(df)
