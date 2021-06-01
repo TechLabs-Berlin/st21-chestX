@@ -2,7 +2,7 @@ import pandas as pd
 import os, math
 
 def img_type_selection(df, img_type = ['PA', 'AP', 'AP Supine']):
-    '''Selection of usable data for ChestX project, based on IEEE8023 covid-chestxray dataset.
+    '''Selection of usable data for ChestX project, based on IEEE-8023 covid-chest-x-ray data set.
     INPUT: (mandatory) metadata.csv as pandas data frame; (not mandatory) x-ray image types as list of strings.
     OUTPUT: returns pandas data frame including 'usefull' data for AI training, like 'filename' etc.'''
 
@@ -20,6 +20,10 @@ def img_type_selection(df, img_type = ['PA', 'AP', 'AP Supine']):
     return df_select
 
 def split_data_for_training(df, test = 30, train = 70):
+    '''Function expected a pandas DataFrame as input and returns a pandas DataFrame, 
+    containing a balanced data set of COVID and no-COVID data samples.
+    The percentage of test and training data can be changed: <int> [1 ... 100]
+    Default value is: test = 30, train = 70'''
     covid = df['finding'].value_counts()['Pneumonia/Viral/COVID-19']
     no_covid = df['finding'].value_counts().sum() - covid
     df_covid = df[df['finding']=='Pneumonia/Viral/COVID-19']
