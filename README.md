@@ -5,10 +5,13 @@
 The COVID-19 image data collection is a public open dataset of chest X-ray and CT images of patients which are positive or suspected of COVID-19 or other viral and bacterial pneumonias. The project was started and is maintained by Joseph Paul Cohen, Paul Morrison, and Lan Dao from the University of Montreal.
 Please, watch the following [video](https://www.youtube.com/watch?v=ineWmqfelEQ) for a quick project introduction, or check out their [paper](https://arxiv.org/abs/2003.11597) for more details about the [data set](https://github.com/ieee8023/covid-chestxray-dataset). <br> To complement the data we found suitable after data-cleaning, x-ray images from [this covid19 radiography database](https://www.kaggle.com/tawsifurrahman/covid19-radiography-database) were also added to this project for AI training. 
 
-Both COVID-19 data sets are linked as submodule to this git project. <br>Run the following code to download the submodule:
+The COVID-19 data sets is linked as submodule to this git project. <br>Run the following code to download the submodule:
 ```git submodule update --init --recursive```
 <br>To update the submodul run:
 ```git submodule update --remote --merge```
+
+Do download the second data set, please run this CML to connect to the kaggle API:
+```kaggle datasets download -d tawsifurrahman/covid19-radiography-database```
 
 ## Related research & solutions 
 Referencing the COVID-19 image data collection repository, some ML models were developed alongside the data collection process and constitute the main purpose of this research project. A valuble source is the repo from Linda Wang and her team. The repo contains pre-trained models.
