@@ -10,7 +10,7 @@ The COVID-19 data sets is linked as submodule to this git project. <br>Run the f
 <br>To update the submodul run:
 ```git submodule update --remote --merge```
 
-Do download the second data set, please run this CML to connect to the kaggle API:
+Do download the second data set, please run this CML to connect to the kaggle API:<br>
 ```kaggle datasets download -d tawsifurrahman/covid19-radiography-database```
 
 ## Related research & solutions 
