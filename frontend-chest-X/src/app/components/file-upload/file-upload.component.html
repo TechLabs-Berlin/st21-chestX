@@ -25,3 +25,6 @@
   </div>
 </div> -->
 <div *ngIf='message' class="upload-error-msg" role="alert">{{message}}</div>
+<div class="image-preview" *ngIf='pickedImage !== "" && pickedImage'>
+  <img [src]="pickedImage" alt="">
+</div>

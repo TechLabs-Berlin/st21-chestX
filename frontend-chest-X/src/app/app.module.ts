@@ -11,6 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { ImageDisplayComponent } from './components/image-display/image-display.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     HeaderComponent,
     FooterComponent,
     AboutUsComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    ImageDisplayComponent
   ],
   imports: [
     BrowserModule,

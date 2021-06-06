@@ -8,6 +8,7 @@ const upload = async (req, res)=>{
         }
     
             res.status(200).send({message: `${req.file.originalname} uploaded successfully` });
+            
     
     }
     catch(error) {
@@ -19,7 +20,7 @@ const upload = async (req, res)=>{
 };
 
 const getFileList = (req, res)=>{
-    const directoryPath = __basedir + '/resources/static/assets/uploads/';
+    const directoryPath = __basedir + '/images/uploads/';
     fs.readdir(directoryPath, (err, files)=>{
         if (err) {
             res.status(500).send({message: 'Unable to find file!'});
@@ -35,13 +36,14 @@ const getFileList = (req, res)=>{
         });
         };
         res.status(200).send(fileInfo);
+        console.log(fileInfo)
 
     });
 };
 
 const download = (req, res)=>{
     const fileName = req.params.name;
-    const directoryPath = __basedir + '/resources/static/assets/uploads/'; 
+    const directoryPath = __basedir + '/images/uploads/'; 
     res.download(directoryPath + fileName, fileName, (error)=>{
         if (error){
             res.status(500).send({message: 'File cannot be downloaded '  + error})
@@ -49,4 +51,4 @@ const download = (req, res)=>{
     });
 };
 
-module.exports = { upload, getFileList, download};
+module.exports = { upload, getFileList, download };

@@ -13,6 +13,7 @@ export class BackendApiService {
   constructor(private http: HttpClient) { }
 
   upload(file: File): Observable<HttpEvent<any>> {
+    // FormData is basically a data format that allows us to combine text values and blobs or file values
     const formData: FormData = new FormData();
     formData.append('file', file);
 

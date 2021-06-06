@@ -4,7 +4,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const methodOverride = require('method-override')
 
+
 global.__basedir = __dirname;
+
 
 
 const mongoose = require('mongoose');
@@ -30,12 +32,17 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 initRoutes(app);
 
+// we are granting access to the image folder to be accessible when a request is made
+const path = require('path');
+app.use("/images", express.static(path.join("backend-chest-X/images/uploads")));
+console.log(app.use("/images", express.static(path.join("backend-chest-X/images/uploads"))))
+
 mongoose.connect('mongodb://localhost:27017/chest-X', {useNewUrlParser: true, useUnifiedTopology: true})
 .then(()=>{
-    console.log('Mongo Connection Open!!!')
+    console.log('MongoDB Connection Open!!!')
 })
 .catch(e =>{
-    console.log('Mongo Connection Error!!')
+    console.log('MongoDB Connection Error!!')
     console.log(e)
 })
 
