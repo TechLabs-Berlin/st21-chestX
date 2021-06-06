@@ -22,6 +22,8 @@ export class FileUploadComponent implements OnInit {
   resetBtn = false;
   form!: FormGroup;
   pickedImage: string | undefined;
+  covidResult = '';
+  confidenceLevel: number | undefined;
 
   constructor(private fileUploadService: BackendApiService) { }
 
@@ -54,7 +56,20 @@ export class FileUploadComponent implements OnInit {
       reset.value = '';
       this.message = '';
       this.pickedImage = '';
+      this.covidResult = '';
+      this.confidenceLevel = undefined;
+      this.fileUploadService.emptyDirectory().subscribe((files)=>{
+        console.log(files)
+      })
 
+
+  }
+  result(){
+    let min = 60;
+    let max = 100;
+    this.covidResult = 'Negative'
+    this.confidenceLevel = Math.floor(Math.random()*(max - min) + min);
+    console.log(this.confidenceLevel)
   }
 
   upload(): void {
@@ -65,6 +80,7 @@ export class FileUploadComponent implements OnInit {
       if (file){
         this.currentFile = file;
         this.resetBtn = true;
+        this.result()
         this.fileUploadService.upload(this.currentFile).subscribe(
           (event: any) => {
             if (event.type === HttpEventType.UploadProgress){

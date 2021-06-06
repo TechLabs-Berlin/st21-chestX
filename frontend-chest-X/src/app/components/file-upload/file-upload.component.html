@@ -7,7 +7,7 @@
   </div>
   <div class="col-4 buttons">
     <button class="btn btn-success btn-sm" [disabled]='!selectedFiles' (click)='upload()'>
-      upload
+      scan
     </button>
     <button id="reset" class="btn btn-success btn-sm" [disabled]='!selectedFiles && !resetBtn' (click)='inputReset(reset)'>
       reset
@@ -24,7 +24,12 @@
 
   </div>
 </div> -->
-<div *ngIf='message' class="upload-error-msg" role="alert">{{message}}</div>
+<!-- <div *ngIf='message' class="upload-error-msg" role="alert">{{message}}</div> -->
+<div *ngIf='covidResult' class="upload-error-msg" role="alert">
+  <div>Result: {{covidResult}}</div>
+  <div>Confidence Level: {{confidenceLevel}}%</div>
+</div>
+<!-- <div *ngIf='confidenceLevel' class="upload-error-msg" role="alert">confidenceLevel: {{confidenceLevel}}</div> -->
 <div class="image-preview" *ngIf='pickedImage !== "" && pickedImage'>
   <img [src]="pickedImage" alt="">
 </div>

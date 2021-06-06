@@ -28,6 +28,10 @@ export class BackendApiService {
     return this.http.get(`${this.baseUrl}/files`);
   }
 
+  emptyDirectory(): Observable<any>{
+    return this.http.delete(`${this.baseUrl}/files`);
+  }
+
 
   // getAll(): Observable<any> {
   //   return this.http.get(baseUrl);
