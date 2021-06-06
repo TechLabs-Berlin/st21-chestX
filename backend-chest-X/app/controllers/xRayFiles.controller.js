@@ -1,4 +1,8 @@
 const uploadFile = require('../../middleware/upload');
+const fs = require('fs');
+const path = require('path');
+
+
 const upload = async (req, res)=>{
     try{
         await uploadFile(req, res);
@@ -51,4 +55,16 @@ const download = (req, res)=>{
     });
 };
 
-module.exports = { upload, getFileList, download };
+const deleteImages = ()=>{
+    const directory = __basedir + '/images/uploads/';
+    fs.readdir(directory, (err, files) => {
+        if (err) throw err;
+        for (let file of files){
+            fs.unlink(path.join(directory, file), err =>{
+                if (err) throw err;
+            });
+        }
+    }) ;
+};
+
+module.exports = { upload, getFileList, download, deleteImages };
