@@ -1,0 +1,5 @@
+# IDE STUFF
+.ipynb_checkpoints
+.vscode
+# DATA SOURCE
+data2
