@@ -67,9 +67,17 @@ export class FileUploadComponent implements OnInit {
   result(){
     let min = 60;
     let max = 100;
-    this.covidResult = 'Negative'
     this.confidenceLevel = Math.floor(Math.random()*(max - min) + min);
     console.log(this.confidenceLevel)
+    let randomNumber = Math.floor(Math.random()*10)+1;
+    if (randomNumber <= 3) {
+      this.covidResult = 'Positive'
+    }
+    else{
+      this.covidResult = 'Negative'
+    }
+    console.log(randomNumber);
+
   }
 
   upload(): void {

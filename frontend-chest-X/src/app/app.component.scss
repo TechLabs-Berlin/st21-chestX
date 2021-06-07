@@ -1,4 +1,16 @@
 .app-name{
   text-align: center;
-  margin: 30px 0;
+  margin: 1px 0 30px 0;
+  // margin: 30px 0;
+}
+marquee{
+  font-size: small;
+  padding: 5px 0;
+  width: 80%;
+  margin: 0 auto;
+
+}
+.disclaimer{
+  display: flex;
+  justify-content: center;
 }

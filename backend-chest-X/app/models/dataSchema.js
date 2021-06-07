@@ -30,13 +30,13 @@ const schema = new mongoose.Schema({
 const xRayFile = mongoose.model('patientInfo', schema);
 
 // creating a sample document of our schema. An instance of a schema is a document
-const firstData = new xRayFile({name: 'Bolaji Koyi', email: 'bolaji.koyi@yahoo.com', fileType: 'jpeg', url: 'http://localhost:8081/files/image.jpeg'});
-console.log(firstData.name);
+// const firstData = new xRayFile({name: 'Bolaji Koyi', email: 'bolaji.koyi@yahoo.com', fileType: 'jpeg', url: 'http://localhost:8081/files/image.jpeg'});
+// console.log(firstData.name);
 
 // saving our sample data to database
-firstData.save()
-    .then(()=> console.log('Data successfully saved in the database'))
-    .catch(()=> console.log('ERROR!! unable to save data in the database'))
+// firstData.save()
+//     .then(()=> console.log('Data successfully saved in the database'))
+//     .catch(()=> console.log('ERROR!! unable to save data in the database'))
 
 
 module.exports = xRayFile;

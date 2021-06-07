@@ -15,13 +15,6 @@ export class AppComponent {
 
   }
 
-  getFiles(){
-    this.fileUploadService.getFiles().subscribe((file)=>{
-      this.UploadedFile = file;
-      console.log(file)
-    })
-  }
-
 
   title = 'chest-X';
 }

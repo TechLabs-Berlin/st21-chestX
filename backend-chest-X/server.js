@@ -35,7 +35,6 @@ initRoutes(app);
 // we are granting access to the image folder to be accessible when a request is made
 const path = require('path');
 app.use("/images", express.static(path.join("backend-chest-X/images/uploads")));
-console.log(app.use("/images", express.static(path.join("backend-chest-X/images/uploads"))))
 
 mongoose.connect('mongodb://localhost:27017/chest-X', {useNewUrlParser: true, useUnifiedTopology: true})
 .then(()=>{
