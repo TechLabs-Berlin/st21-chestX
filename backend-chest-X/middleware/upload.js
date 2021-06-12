@@ -5,12 +5,15 @@ const maxSize = 2*1024*1024;
 //storage configuration
 let storage = multer.diskStorage({
     destination: (req, file, cb) =>{
-        cb(null, __basedir + '/images/uploads/');
-        console.log(`${__basedir}/images/uploads/${file.originalname}`)
+        cb(null, __basedir + '/public/');
+        // cb(null, __basedir + '/images/uploads/');
+        // console.log(`${__basedir}/images/uploads/${file.originalname}`)
     },
     //setting the names of the files inside the destination folder
     filename: (req, file, cb) =>{
-        cb(null, file.originalname);
+        // split the name of the file if it contains a space and join it together with a dash.
+        const fileName  = file.originalname.toLowerCase().split(' ').join('-');
+        cb(null, fileName);
     },
 })
 

@@ -1,23 +1,33 @@
 const mongoose = require('mongoose');
 
-// defining a schema
 const schema = new mongoose.Schema({
-    name: {
-        type: String,
-    },
-    email: {
-        type: String,
-    },
-    fileType: {
-        type: String,
-    },
-    url: {
+    
+    path: {
         type: String,
     }
 
 },
     {timestamps: true}
 );
+
+// defining a schema
+// const schema = new mongoose.Schema({
+//     name: {
+//         type: String,
+//     },
+//     email: {
+//         type: String,
+//     },
+//     fileType: {
+//         type: String,
+//     },
+//     url: {
+//         type: String,
+//     }
+
+// },
+//     {timestamps: true}
+// );
 
 // schema.method('toJoin', ()=>{
 //     const {__v, _id, ...object} = this.toObject();
@@ -27,7 +37,8 @@ const schema = new mongoose.Schema({
 
 
 // Compiling the schema into a model
-const xRayFile = mongoose.model('patientInfo', schema);
+// module.exports = mongoose.model('patientInfo', schema);
+module.exports = mongoose.model('image', schema);
 
 // creating a sample document of our schema. An instance of a schema is a document
 // const firstData = new xRayFile({name: 'Bolaji Koyi', email: 'bolaji.koyi@yahoo.com', fileType: 'jpeg', url: 'http://localhost:8081/files/image.jpeg'});
@@ -39,4 +50,4 @@ const xRayFile = mongoose.model('patientInfo', schema);
 //     .catch(()=> console.log('ERROR!! unable to save data in the database'))
 
 
-module.exports = xRayFile;
+// module.exports = xRayFile;

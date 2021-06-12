@@ -12,6 +12,8 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { ImageDisplayComponent } from './components/image-display/image-display.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { PatientCredentialsComponent } from './components/patient-credentials/patient-credentials.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { ImageDisplayComponent } from './components/image-display/image-display.
     FooterComponent,
     AboutUsComponent,
     FileUploadComponent,
-    ImageDisplayComponent
+    ImageDisplayComponent,
+    WelcomeComponent,
+    PatientCredentialsComponent
   ],
   imports: [
     BrowserModule,

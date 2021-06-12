@@ -1,17 +1,31 @@
 const uploadFile = require('../../middleware/upload');
 const fs = require('fs');
 const path = require('path');
+const ImagePath = require('../models/dataSchema');
+const p = require('python-shell')
+
+urlPath = '';
 
 
-const upload = async (req, res)=>{
+
+const upload = async function (req, res){
     try{
         await uploadFile(req, res);
 
         if (req.file == undefined){
             return res.status(400).send({message: 'Please upload a file'});
         }
-    
-            res.status(200).send({message: `${req.file.originalname} uploaded successfully` });
+        const url = req.protocol + '://' + req.get('host')
+        this.urlPath = url + '/public/' + req.file.originalname.split(' ').join('-');
+        res.status(200).send({message: `${req.file.originalname} uploaded successfully` });
+        console.log(this.urlPath)
+
+        const imagePath = new ImagePath({path: this.urlPath});
+        imagePath.save()
+        .then(()=> console.log('New data successfully saved in the database'))
+        .catch(()=> console.log('ERROR!! unable to save data in the database'))
+
+        sendURL();
             
     
     }
@@ -23,8 +37,21 @@ const upload = async (req, res)=>{
     }
 };
 
+// const imagePath = new ImagePath({
+//     path: urlPath
+// });
+// imagePath.save().then(result =>{
+//     console.log(`${result} saved!`)
+// })
+// .catch(err => {
+//  console.log('Unable to save path')
+// });
+
+
+
 const getFileList = (req, res)=>{
-    const directoryPath = __basedir + '/images/uploads/';
+    const directoryPath = __basedir + '/public/';
+    //fs.readdir is used for reading the files in a directory
     fs.readdir(directoryPath, (err, files)=>{
         if (err) {
             res.status(500).send({message: 'Unable to find file!'});
@@ -40,14 +67,13 @@ const getFileList = (req, res)=>{
         });
         };
         res.status(200).send(fileInfo);
-        console.log(fileInfo)
 
     });
 };
 
 const download = (req, res)=>{
     const fileName = req.params.name;
-    const directoryPath = __basedir + '/images/uploads/'; 
+    const directoryPath = __basedir + '/public/'; 
     res.download(directoryPath + fileName, fileName, (error)=>{
         if (error){
             res.status(500).send({message: 'File cannot be downloaded '  + error})
@@ -55,11 +81,14 @@ const download = (req, res)=>{
     });
 };
 
+// Deleting images in the file storage
 const deleteImages = ()=>{
-    const directory = __basedir + '/images/uploads/';
+    const directory = __basedir + '/public/';
     fs.readdir(directory, (err, files) => {
         if (err) throw err;
+
         for (let file of files){
+            //unlink is used to delete files from a file storage
             fs.unlink(path.join(directory, file), err =>{
                 if (err) throw err;
             });
@@ -67,4 +96,13 @@ const deleteImages = ()=>{
     }) ;
 };
 
-module.exports = { upload, getFileList, download, deleteImages };
+const sendURL = (req, res) =>{
+    var options = {
+        args: [ JSON.stringify(this.urlPath) ]
+    }
+    p.PythonShell.run('../../../python-files/hello.py', options, (req, res)=>{
+        console.log('Path sent to python hello.py')
+    })
+}
+
+module.exports = { upload, getFileList, download, deleteImages, sendURL };

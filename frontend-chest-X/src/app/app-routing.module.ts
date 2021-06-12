@@ -1,7 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { PatientCredentialsComponent } from './components/patient-credentials/patient-credentials.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: '', redirectTo: '/', pathMatch: 'full'},
+  {path: 'welcome', component: WelcomeComponent},
+  {path: 'patient-credentials', component: PatientCredentialsComponent},
+  {path: 'file-upload', component: FileUploadComponent},
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

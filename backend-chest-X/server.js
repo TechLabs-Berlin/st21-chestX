@@ -23,6 +23,11 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+// we are granting access to the image folder to be accessible when a request is made
+const path = require('path');
+// app.use("/images", express.static(path.join("backend-chest-X/images/uploads")));
+app.use('/public', express.static(path.join('public')));
+
 const initRoutes = require('./app/routes/xRayFile.routes')
 
 // parse requests of content-type - application/json
@@ -32,10 +37,10 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 initRoutes(app);
 
-// we are granting access to the image folder to be accessible when a request is made
-const path = require('path');
-app.use("/images", express.static(path.join("backend-chest-X/images/uploads")));
 
+
+
+// Establishing connection to database
 mongoose.connect('mongodb://localhost:27017/chest-X', {useNewUrlParser: true, useUnifiedTopology: true})
 .then(()=>{
     console.log('MongoDB Connection Open!!!')
