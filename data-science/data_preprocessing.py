@@ -13,10 +13,10 @@ def get_covid_data(path):
     INPUT: Path to meta-data files './COVID-19_Radiography_Dataset/'
     OUTPUT: pandas DataFrame incl. filename and covid-label [0/1]'''
 
-    df_covid = pd.read_excel(os.path.abspath(path+'/COVID.metadata.xlsx'))
-    df_lung = pd.read_excel(os.path.abspath(path+'/Lung_Opacity.metadata.xlsx'))
-    df_normal = pd.read_excel(os.path.abspath(path+'/Normal.metadata.xlsx'))
-    df_viral = pd.read_excel(os.path.abspath(path+'/Viral Pneumonia.metadata.xlsx'))
+    df_covid = pd.read_excel(os.path.abspath(path+'/COVID_metadata.xlsx'))
+    df_lung = pd.read_excel(os.path.abspath(path+'/Lung_Opacity_metadata.xlsx'))
+    df_normal = pd.read_excel(os.path.abspath(path+'/Normal_metadata.xlsx'))
+    df_viral = pd.read_excel(os.path.abspath(path+'/Viral_Pneumonia_metadata.xlsx'))
 
     # create full filename
     df_covid['filename'] = df_covid['FILE NAME'] + "." + df_covid['FORMAT'].str.lower()
@@ -44,7 +44,7 @@ def get_covid_data(path):
 # ----> Or copy the get_covid_data() function into a Colab / Jupyter notebook and feed in the correct file path.
 
 if __name__ == "__main__":
-    path = rootdir()+'/data2'
+    path = rootdir()+'/data-science'
     print("--> Scraping data from:",path)
     df = get_covid_data(path)
     print('--> PREVIEW: \n', df.head(5))
