@@ -5,14 +5,14 @@ import { PatientCredentialsComponent } from './components/patient-credentials/pa
 import { WelcomeComponent } from './components/welcome/welcome.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/', pathMatch: 'full'},
-  {path: 'welcome', component: WelcomeComponent},
-  {path: 'patient-credentials', component: PatientCredentialsComponent},
-  {path: 'file-upload', component: FileUploadComponent},
+  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+  { path: 'welcome', component: WelcomeComponent },
+  { path: 'patient-credentials', component: PatientCredentialsComponent },
+  { path: 'file-upload', component: FileUploadComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
