@@ -72,16 +72,15 @@ To run the backend part of the project:
 
 - Python3
 - Python libs: pandas, numpy, matplotlib, (tf.image, tf.keras), pillow, etc.
-- [TensorFlow](https://www.tensorflow.org/tfx/guide/)
+- [Fastai](https://www.fast.ai/)
 - Git & GitHub
 - Colab notebooks
 - PyCharm (or other IDE - personal choice)
 - venv
-- WIP ...
 - Angular
 - Node.js and Express
 - MongoDB and Mongoose
-
+- WIP ...
 
 ## Important TechLabs links
 - Miro: [miro.com/app/board/o9J_lGWlTNE=/](miro.com/app/board/o9J_lGWlTNE=/)
