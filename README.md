@@ -51,7 +51,7 @@ Setting up the database
 To run the backend part of the project:
 - Navigate to the directory of the backend files: ```cd backend-chest-X```
 - To install all the backend dependencies: ```npm install```
-- To run the backend server: ```nodemon server.js```
+- To run the backend server: ```node server.js```
 
 ## Team members
 - DS | Heike
