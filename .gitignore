@@ -3,3 +3,5 @@
 .vscode
 # DATA SOURCE
 data2
+# WD tools
+node_modules
