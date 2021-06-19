@@ -7,8 +7,16 @@
         name="x-ray-image"
         id="file-upload"
         accept="image/*"
+        style="display: none"
         (change)="selectFile($event)"
       />
+      <!-- customizing the file upload input field -->
+      <button
+        style="display: block; width: 120px; height: 30px"
+        onclick="document.getElementById('file-upload').click()"
+      >
+        upload
+      </button>
     </label>
   </div>
   <div class="col-4 buttons">
@@ -48,6 +56,32 @@
 <div class="image-preview" *ngIf="pickedImage !== '' && pickedImage">
   <img [src]="pickedImage" alt="" />
 </div>
+
 <button>
   <a routerLink="/patient-credentials">New patient</a>
 </button>
+
+<div class="container fileUploadWrapper border">
+  <form action="" [formGroup]="form">
+    <div class="col-md-12">
+      <div
+        class="fileupload"
+        appDragDropFileUpload
+        (click)="fileField.click()"
+        (fileDropped)="upload()"
+      >
+        <span class="ddinfo">Choose a file or drag here</span>
+        <input
+          type="file"
+          name="x-ray-image"
+          id="file-upload"
+          accept="image/*"
+          #fileField
+          (change)="upload()"
+          hidden
+          multiple
+        />
+      </div>
+    </div>
+  </form>
+</div>
