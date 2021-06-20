@@ -14,7 +14,7 @@ import { ImageDisplayComponent } from './components/image-display/image-display.
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { PatientCredentialsComponent } from './components/patient-credentials/patient-credentials.component';
 import { DragDropFileUploadDirective } from './drag-drop-file-upload.directive';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,6 +35,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
