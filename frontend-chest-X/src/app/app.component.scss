@@ -1,16 +1,9 @@
-.app-name{
-  text-align: center;
-  // margin: 1px 0 30px 0;
-  margin: 30px 0;
-}
-marquee{
-  font-size: small;
-  padding: 5px 0;
-  width: 80%;
-  margin: 0 auto;
-
-}
-.disclaimer{
-  display: flex;
-  justify-content: center;
+.app-body {
+  background-image: url("../assets/images/background.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  max-width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
 }

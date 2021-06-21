@@ -1,34 +1,5 @@
-<div class="row border p-2" id="upload-container">
-  <div class="col-8">
-    <label for="file-upload" class="btn btn-default p-0">
-      <input
-        #reset
-        type="file"
-        name="x-ray-image"
-        id="file-upload"
-        accept="image/*"
-        (change)="selectFile($event)"
-      />
-    </label>
-  </div>
-  <div class="col-4 buttons">
-    <button
-      class="btn btn-success btn-sm"
-      [disabled]="!selectedFiles"
-      (click)="upload()"
-    >
-      scan
-    </button>
-    <button
-      id="reset"
-      class="btn btn-success btn-sm"
-      [disabled]="!selectedFiles && !resetBtn"
-      (click)="inputReset(reset)"
-    >
-      reset
-    </button>
-  </div>
-</div>
+<img class="logo" src="assets/images/chestx-logo1.png" alt="" />
+
 <!-- <div *ngIf='currentFile' class="progress my-3">
   <div class="progress-bar progress-bar-info progress-bar-stripped"
   role="progressbar"
@@ -40,14 +11,83 @@
   </div>
 </div> -->
 <!-- <div *ngIf='message' class="upload-error-msg" role="alert">{{message}}</div> -->
-<div *ngIf="covidResult" class="upload-error-msg" role="alert">
+<!-- <div *ngIf="covidResult" class="upload-error-msg" role="alert">
   <div>Result: {{ covidResult }}</div>
   <div>Confidence Level: {{ confidenceLevel }}%</div>
-</div>
+</div> -->
 <!-- <div *ngIf='confidenceLevel' class="upload-error-msg" role="alert">confidenceLevel: {{confidenceLevel}}</div> -->
-<div class="image-preview" *ngIf="pickedImage !== '' && pickedImage">
+<!-- <div class="image-preview" *ngIf="pickedImage !== '' && pickedImage">
   <img [src]="pickedImage" alt="" />
+</div> -->
+
+<div>
+  <span>{{ userInformation.name }}</span>
+  <span>{{ userInformation.dob }}</span>
+  <span>{{ userInformation.email }}</span>
 </div>
-<button>
-  <a routerLink="/patient-credentials">New patient</a>
-</button>
+<!-- Drag and drop -->
+<div class="container fileUploadWrapper">
+  <form action="" [formGroup]="form">
+    <div class="col-md-12">
+      <div
+        class="fileupload"
+        appDragDropFileUpload
+        (click)="fileField.click()"
+        (fileDropped)="selectFile($event)"
+      >
+        <div class="image-preview" *ngIf="pickedImage !== '' && pickedImage">
+          <img [src]="pickedImage" alt="" />
+        </div>
+        <span class="ddinfo" *ngIf="!pickedImage">
+          Choose a file or drag here</span
+        >
+        <input
+          type="file"
+          name="x-ray-image"
+          id="file-upload"
+          accept="image/*"
+          #fileField
+          (change)="selectFile($event)"
+          hidden
+          multiple
+        />
+      </div>
+    </div>
+  </form>
+</div>
+<div class="" id="upload-container">
+  <div>
+    <label for="file-upload">
+      <input
+        #reset
+        type="file"
+        name="x-ray-image"
+        id="file-upload"
+        accept="image/*"
+        (change)="selectFile($event)"
+      />
+      <!-- customizing the file upload input field -->
+      <!-- <button onclick="document.getElementById('file-upload').click()">
+        upload
+      </button> -->
+    </label>
+  </div>
+  <div>
+    <button class="scan-btn" [disabled]="!selectedFiles" (click)="upload()">
+      scan
+    </button>
+    <button
+      id="reset"
+      class="reset-btn"
+      [disabled]="!selectedFiles && !resetBtn"
+      (click)="inputReset(reset)"
+    >
+      reset
+    </button>
+  </div>
+</div>
+<div class="new-patient">
+  <button>
+    <a routerLink="/patient-credentials">New patient</a>
+  </button>
+</div>

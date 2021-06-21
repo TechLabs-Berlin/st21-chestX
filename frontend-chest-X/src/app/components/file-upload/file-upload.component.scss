@@ -1,20 +1,21 @@
-input[name='x-ray-image']{
-   width: 150%;
-    text-align: center;
+input[name="x-ray-image"] {
+  text-align: center;
+  color: transparent;
+  width: 100px;
 }
 
-#upload-container{
-  width: 80%;
-  margin: 0 auto;
+#upload-container {
+  text-align: center;
+  margin-top: 10px;
+  div {
+    display: inline-block;
+  }
 }
-#reset{
-  margin-left: 10px;
-}
-.buttons{
+.buttons {
   display: flex;
   justify-content: flex-end;
 }
-.upload-error-msg{
+.upload-error-msg {
   text-align: center;
   margin: 20px auto;
   padding: 10px 30px;
@@ -23,13 +24,55 @@ input[name='x-ray-image']{
   border-radius: 3px;
 }
 
-.image-preview{
+.image-preview {
   display: flex;
   justify-content: center;
   margin: 30px 0 50px 0;
   width: 100%;
-  img{
-    width: 80%;
+  border: 1px solid #000;
+  img {
+    width: 100%;
+    height: 67vh;
   }
-
+}
+img.logo {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 200px;
+}
+.new-patient {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  button {
+    width: min-content;
+    white-space: nowrap;
+    padding: 10px 25px;
+    border-radius: 10px;
+    border: unset;
+    a {
+      color: #000;
+      font-weight: bold;
+      font-size: 25px;
+    }
+  }
+}
+.fileupload {
+  height: 68vh;
+  width: 100%;
+  cursor: pointer;
+}
+.fileUploadWrapper {
+  margin-top: 100px;
+  width: 70%;
+  height: 70%;
+  border: 1px solid #000;
+  background-color: #fff;
+}
+.ddinfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }

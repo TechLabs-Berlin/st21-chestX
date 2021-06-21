@@ -1,0 +1,22 @@
+button {
+  width: min-content;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: unset;
+}
+img {
+  width: 300px;
+  margin-bottom: 30px;
+}
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #000;
+}
