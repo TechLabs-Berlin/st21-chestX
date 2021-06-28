@@ -68,10 +68,11 @@ app.get('/name', (req, res)=>{
     let process = spawn('python',['../python-files/data_io_pipeline.py', req.query.firstname, req.query.lastname]);
     process.stdout.on('data', (data)=>{
         res.send(data.toString());
+        console.log(data)
     })
 })
 
 app.listen(PORT, ()=>{
-    console.log(`Server listening on port ${PORT}`)
+    console.log(`Server listening on port ${PORT}`);
 })
 
