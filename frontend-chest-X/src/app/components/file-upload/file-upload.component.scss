@@ -1,14 +1,36 @@
 input[name="x-ray-image"] {
   text-align: center;
   color: transparent;
-  width: 100px;
+  width: 150px;
+  border: unset;
 }
 
 #upload-container {
   text-align: center;
   margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 65%;
+  display: flex;
+  justify-content: space-between;
   div {
     display: inline-block;
+  }
+  button {
+    width: min-content;
+    white-space: nowrap;
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: unset;
+    color: #000;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 30px;
+    a {
+      color: #000;
+      font-weight: bold;
+      font-size: 20px;
+    }
   }
 }
 .buttons {
@@ -17,22 +39,34 @@ input[name="x-ray-image"] {
 }
 .upload-error-msg {
   text-align: center;
+  color: #fff;
+  font-weight: bold;
   margin: 20px auto;
   padding: 10px 30px;
-  width: fit-content;
-  background-color: bisque;
-  border-radius: 3px;
+  width: 300px;
+  height: 300px;
+  background-color: transparent;
+  // border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 100;
+  margin-left: -150px;
+  margin-top: -150px;
 }
 
 .image-preview {
-  display: flex;
-  justify-content: center;
-  margin: 30px 0 50px 0;
+  // display: flex;
+  // justify-content: center;
+  // margin: 30px 0 50px 0;
   width: 100%;
-  border: 1px solid #000;
+  // border: 1px solid #000;
   img {
     width: 100%;
     height: 67vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 img.logo {
@@ -44,12 +78,12 @@ img.logo {
 .new-patient {
   display: flex;
   justify-content: center;
-  margin: 20px 0;
+  margin: 30px 0;
   button {
     width: min-content;
     white-space: nowrap;
     padding: 10px 25px;
-    border-radius: 10px;
+    border-radius: 15px;
     border: unset;
     a {
       color: #000;
@@ -59,20 +93,71 @@ img.logo {
   }
 }
 .fileupload {
-  height: 68vh;
+  height: 67vh;
   width: 100%;
   cursor: pointer;
+  border: unset;
 }
 .fileUploadWrapper {
   margin-top: 100px;
   width: 70%;
-  height: 70%;
+  // height: 70%;
   border: 1px solid #000;
-  background-color: #fff;
+  // background-color: #fff;
+  background-color: transparent;
+  padding: unset;
+  position: relative;
 }
 .ddinfo {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: inherit;
+  font-size: 30px;
+  background-color: darkgray;
+}
+.file-type-info {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 20px;
+}
+.circle {
+  width: 150px;
+  height: 150px;
+  border: 20px solid #fff;
+  border-radius: 50%;
+  position: relative;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+.line {
+  width: 80px;
+  border: 10px solid #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -40px;
+  margin-top: -5px;
+  box-sizing: border-box;
+}
+.user-details {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  background-color: dimgray;
+  z-index: 500;
+  width: 100%;
+  div {
+    font-weight: bold;
+    color: #fff;
+    font-size: 16px;
+  }
 }

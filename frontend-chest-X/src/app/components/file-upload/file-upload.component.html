@@ -11,22 +11,41 @@
   </div>
 </div> -->
 <!-- <div *ngIf='message' class="upload-error-msg" role="alert">{{message}}</div> -->
-<!-- <div *ngIf="covidResult" class="upload-error-msg" role="alert">
-  <div>Result: {{ covidResult }}</div>
-  <div>Confidence Level: {{ confidenceLevel }}%</div>
+<!-- <div *ngif="(progress$ | async) == 100">
+  <div>
+    <span>{{ userInformation.name }}</span>
+    <span>{{ userInformation.dob }}</span>
+    <span>{{ userInformation.email }}</span>
+  </div>
+
+  <div *ngIf ="covidResult" class="upload-error-msg" role="alert">
+    <div>Result: {{ covidResult }}</div>
+    <div>Confidence Level: {{ confidenceLevel }}%</div>
+  </div>
 </div> -->
+
 <!-- <div *ngIf='confidenceLevel' class="upload-error-msg" role="alert">confidenceLevel: {{confidenceLevel}}</div> -->
 <!-- <div class="image-preview" *ngIf="pickedImage !== '' && pickedImage">
   <img [src]="pickedImage" alt="" />
 </div> -->
 
-<div>
-  <span>{{ userInformation.name }}</span>
-  <span>{{ userInformation.dob }}</span>
-  <span>{{ userInformation.email }}</span>
-</div>
 <!-- Drag and drop -->
 <div class="container fileUploadWrapper">
+  <!-- The user details are shown here -->
+  <div *ngIf="covidResult" class="user-details">
+    <div>{{ userInformation.name }}</div>
+    <div>{{ userInformation.dob }}</div>
+    <div>{{ userInformation.email }}</div>
+  </div>
+  <!-- The result is shown here after the image is processed -->
+  <div *ngIf="covidResult" class="upload-error-msg" role="alert">
+    <div class="circle">
+      <div class="line"></div>
+    </div>
+    <div>Result:</div>
+    <div>{{ covidResult }} COVID-19</div>
+    <div>(E-Mail sent to patient)</div>
+  </div>
   <form action="" [formGroup]="form">
     <div class="col-md-12">
       <div
@@ -55,39 +74,49 @@
     </div>
   </form>
 </div>
-<div class="" id="upload-container">
+<div class="" id="upload-container" *ngIf="!covidResult">
   <div>
-    <label for="file-upload">
-      <input
-        #reset
-        type="file"
-        name="x-ray-image"
-        id="file-upload"
-        accept="image/*"
-        (change)="selectFile($event)"
-      />
-      <!-- customizing the file upload input field -->
-      <!-- <button onclick="document.getElementById('file-upload').click()">
-        upload
-      </button> -->
-    </label>
+    <button>
+      <a routerLink="/patient-credentials">Back</a>
+    </button>
+  </div>
+  <div class="choose-file">
+    <button>
+      <label for="file-upload">
+        <input
+          #reset
+          type="file"
+          name="x-ray-image"
+          id="file-upload"
+          accept="image/*"
+          (change)="selectFile($event)"
+        />
+        <!-- customizing the file upload input field -->
+        <!-- <button onclick="document.getElementById('file-upload').click()">
+          upload
+        </button> -->
+      </label>
+    </button>
   </div>
   <div>
     <button class="scan-btn" [disabled]="!selectedFiles" (click)="upload()">
-      scan
+      Analyse
     </button>
+  </div>
+  <div>
     <button
       id="reset"
       class="reset-btn"
       [disabled]="!selectedFiles && !resetBtn"
       (click)="inputReset(reset)"
     >
-      reset
+      Reset
     </button>
   </div>
 </div>
 <div class="new-patient">
-  <button>
+  <button *ngIf="covidResult">
     <a routerLink="/patient-credentials">New patient</a>
   </button>
 </div>
+<div class="file-type-info">*CHESTX ONLY SUPPORTS THE UPLOAD OF JPG FILES</div>

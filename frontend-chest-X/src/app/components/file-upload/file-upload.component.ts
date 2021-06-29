@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { BackendApiService } from 'src/app/services/backend-api.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserDataService } from 'src/app/services/user-data.service';
 
@@ -15,7 +15,7 @@ export class FileUploadComponent implements OnInit {
 
   selectedFiles?: FileList;
   currentFile?: File;
-  progress = 0;
+  progress$ = new BehaviorSubject<number>(0);
   message = '';
   fileInfo?: Observable<any>;
   // resetValue: any;
@@ -88,7 +88,7 @@ export class FileUploadComponent implements OnInit {
   }
 
   upload(): void {
-    this.progress = 0;
+    // this.progress$;
     if (this.selectedFiles) {
       const file: File | null = this.selectedFiles.item(0);
       console.log(file);
@@ -99,7 +99,9 @@ export class FileUploadComponent implements OnInit {
         this.fileUploadService.upload(this.currentFile).subscribe(
           (event: any) => {
             if (event.type === HttpEventType.UploadProgress) {
-              this.progress = Math.round((100 * event.loaded) / event.total);
+              let progress = Math.round((100 * event.loaded) / event.total);
+              this.progress$.next(progress);
+              this.progress$.subscribe((val) => console.log(val));
             } else if (event instanceof HttpResponse) {
               this.message = event.body.message;
               this.fileInfo = this.fileUploadService.getFiles();
@@ -107,7 +109,7 @@ export class FileUploadComponent implements OnInit {
           },
           (error: any) => {
             console.log(error);
-            this.progress = 0;
+            this.progress$.next(0);
             if (error.error && error.error.message) {
               this.message = error.error.message;
             } else {
