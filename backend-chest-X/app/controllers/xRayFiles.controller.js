@@ -26,31 +26,17 @@ const upload = async function (req, res) {
       .save()
       .then(() => console.log("New data successfully saved in the database"))
       .catch(() => console.log("ERROR!! unable to save data in the database"));
-
-    sendURL();
   } catch (error) {
     if (error.code == "LIMIT_FILE_SIZE") {
       return res
         .status(500)
         .send({ message: "File size cannot be more than 2MB!" });
     }
-    res
-      .status(500)
-      .send({
-        message: `Could not upload file: ${req.file.originalname} ${error}`,
-      });
+    res.status(500).send({
+      message: `Could not upload file: ${req.file.originalname} ${error}`,
+    });
   }
 };
-
-// const imagePath = new ImagePath({
-//     path: urlPath
-// });
-// imagePath.save().then(result =>{
-//     console.log(`${result} saved!`)
-// })
-// .catch(err => {
-//  console.log('Unable to save path')
-// });
 
 const getFileList = (req, res) => {
   const directoryPath = __basedir + "/public/";
@@ -97,13 +83,4 @@ const deleteImages = () => {
   });
 };
 
-const sendURL = (req, res) => {
-  var options = {
-    args: [JSON.stringify(this.urlPath)],
-  };
-  p.PythonShell.run("../../../python-files/hello.py", options, (req, res) => {
-    console.log("Path sent to python hello.py");
-  });
-};
-
-module.exports = { upload, getFileList, download, deleteImages, sendURL };
+module.exports = { upload, getFileList, download, deleteImages };

@@ -1,8 +1,6 @@
 const express = require("express");
 const app = express();
-const bodyParser = require("body-parser");
 const cors = require("cors");
-const methodOverride = require("method-override");
 
 global.__basedir = __dirname;
 
@@ -21,7 +19,6 @@ app.use(cors(corsOptions));
 
 // we are granting access to the image folder to be accessible when a request is made
 const path = require("path");
-// app.use("/images", express.static(path.join("backend-chest-X/images/uploads")));
 app.use("/public", express.static(path.join("public")));
 
 const initRoutes = require("./app/routes/xRayFile.routes");
@@ -51,15 +48,7 @@ app.get("/", (req, res) => {
   res.send("chest-X app");
 });
 
-//creating a sample data to save in the database
-// const sampleData = new xRayFile({name: 'Bolaji Koyi', file: 'jpeg', description: 'Sample file to test the database'});
-// sampleData.save()
-//     .then(()=> console.log('New data successfully saved in the database'))
-//     .catch(()=> console.log('ERROR!! unable to save data in the database'))
-
-// this is a demonstration of how we can communicate with python files from DS/AI groups
-// you can paste the below url in the browser
-// http://localhost:8081/name?firstname=Ram&lastname=Sharma
+// connection to python script
 app.get("/name", (req, res) => {
   let spawn = require("child_process").spawn;
   let process = spawn("python", [
