@@ -104,3 +104,4 @@ To run the backend part of the project:
 - [Project Weekly Subteams Updates Doc](https://docs.google.com/document/d/1TkIcdisPCkTXx0eKFZnw-JZAVFeyc5wFi7jbVkmOwUY/edit)
 - [Project Weekly Submission Form](https://techlabsorg.typeform.com/to/m9cEYlR6)
 - [Project Weekly Updates - All ST21 projects](https://www.notion.so/techlabs/Project-Weekly-Updates-ST21-dfb52c9064ad44dc945613e4b66f7ae1)
+- Figma: https://www.figma.com/file/X3FFF3a9g9FvoUCMzz1Zs3/ChestX?node-id=0%3A1

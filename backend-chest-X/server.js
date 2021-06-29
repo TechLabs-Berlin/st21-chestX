@@ -63,12 +63,13 @@ app.get("/", (req, res) => {
 app.get("/name", (req, res) => {
   let spawn = require("child_process").spawn;
   let process = spawn("python", [
-    "../python-files/hello.py",
+    "../python-files/data_io_pipeline.py",
     req.query.firstname,
     req.query.lastname,
   ]);
   process.stdout.on("data", (data) => {
     res.send(data.toString());
+    console.log(data);
   });
 });
 
