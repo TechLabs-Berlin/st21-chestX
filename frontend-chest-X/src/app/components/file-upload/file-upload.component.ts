@@ -41,7 +41,7 @@ export class FileUploadComponent implements OnInit {
   }
 
   selectFile(event: any): void {
-    // Getting the user value from service
+    // Getting the user information from service
     this.userInfoService.userInformation.subscribe((val) => {
       this.userInformation = val;
       console.log(val);
