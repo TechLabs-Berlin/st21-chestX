@@ -11,8 +11,6 @@ import { UserDataService } from 'src/app/services/user-data.service';
   styleUrls: ['./file-upload.component.scss'],
 })
 export class FileUploadComponent implements OnInit {
-  // @ViewChild('reset') reset!:ElementRef;
-
   selectedFiles?: FileList;
   currentFile?: File;
   progress$ = new BehaviorSubject<number>(0);
@@ -33,8 +31,6 @@ export class FileUploadComponent implements OnInit {
 
   ngOnInit(): void {
     this.fileInfo = this.fileUploadService.getFiles();
-    console.log(this.fileInfo);
-
     this.form = new FormGroup({
       image: new FormControl(null, { validators: [Validators.required] }),
     });
@@ -44,7 +40,6 @@ export class FileUploadComponent implements OnInit {
     // Getting the user information from service
     this.userInfoService.userInformation.subscribe((val) => {
       this.userInformation = val;
-      console.log(val);
     });
 
     const file = event.target.files[0];
@@ -69,29 +64,23 @@ export class FileUploadComponent implements OnInit {
     this.covidResult = '';
     this.confidenceLevel = undefined;
     this.userInformation = '';
-    this.fileUploadService.emptyDirectory().subscribe((files) => {
-      console.log(files);
-    });
+    this.fileUploadService.emptyDirectory().subscribe((files) => {});
   }
   result(): void {
     const min = 60;
     const max = 100;
     this.confidenceLevel = Math.floor(Math.random() * (max - min) + min);
-    console.log(this.confidenceLevel);
     const randomNumber = Math.floor(Math.random() * 10) + 1;
     if (randomNumber <= 3) {
       this.covidResult = 'Positive';
     } else {
       this.covidResult = 'Negative';
     }
-    console.log(randomNumber);
   }
 
   upload(): void {
-    // this.progress$;
     if (this.selectedFiles) {
       const file: File | null = this.selectedFiles.item(0);
-      console.log(file);
       if (file) {
         this.currentFile = file;
         this.resetBtn = true;
@@ -101,14 +90,12 @@ export class FileUploadComponent implements OnInit {
             if (event.type === HttpEventType.UploadProgress) {
               let progress = Math.round((100 * event.loaded) / event.total);
               this.progress$.next(progress);
-              this.progress$.subscribe((val) => console.log(val));
             } else if (event instanceof HttpResponse) {
               this.message = event.body.message;
               this.fileInfo = this.fileUploadService.getFiles();
             }
           },
           (error: any) => {
-            console.log(error);
             this.progress$.next(0);
             if (error.error && error.error.message) {
               this.message = error.error.message;
@@ -122,11 +109,5 @@ export class FileUploadComponent implements OnInit {
       }
       this.selectedFiles = undefined;
     }
-  }
-
-  // tslint:disable-next-line: use-lifecycle-interface
-  ngAfterViewInit(): void {
-    // this.resetValue = this.reset.nativeElement.value;
-    // console.log(this.reset.nativeElement.value);
   }
 }

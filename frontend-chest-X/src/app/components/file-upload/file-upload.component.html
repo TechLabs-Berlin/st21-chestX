@@ -1,5 +1,6 @@
 <img class="logo" src="assets/images/chestx-logo1.png" alt="" />
 
+<!-- progress bar -->
 <!-- <div *ngIf='currentFile' class="progress my-3">
   <div class="progress-bar progress-bar-info progress-bar-stripped"
   role="progressbar"
@@ -9,24 +10,6 @@
   [ngStyle]="{width: progress + '%'}">
 
   </div>
-</div> -->
-<!-- <div *ngIf='message' class="upload-error-msg" role="alert">{{message}}</div> -->
-<!-- <div *ngif="(progress$ | async) == 100">
-  <div>
-    <span>{{ userInformation.name }}</span>
-    <span>{{ userInformation.dob }}</span>
-    <span>{{ userInformation.email }}</span>
-  </div>
-
-  <div *ngIf ="covidResult" class="upload-error-msg" role="alert">
-    <div>Result: {{ covidResult }}</div>
-    <div>Confidence Level: {{ confidenceLevel }}%</div>
-  </div>
-</div> -->
-
-<!-- <div *ngIf='confidenceLevel' class="upload-error-msg" role="alert">confidenceLevel: {{confidenceLevel}}</div> -->
-<!-- <div class="image-preview" *ngIf="pickedImage !== '' && pickedImage">
-  <img [src]="pickedImage" alt="" />
 </div> -->
 
 <!-- Drag and drop -->
@@ -91,10 +74,6 @@
           accept="image/*"
           (change)="selectFile($event)"
         />
-        <!-- customizing the file upload input field -->
-        <!-- <button onclick="document.getElementById('file-upload').click()">
-          upload
-        </button> -->
       </label>
     </button>
   </div>
