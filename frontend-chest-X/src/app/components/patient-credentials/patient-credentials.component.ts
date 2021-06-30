@@ -12,6 +12,9 @@ export class PatientCredentialsComponent implements OnInit {
     dob: '',
     email: '',
   };
+  emailAddress: string = '';
+  dateOfBirth: string = '';
+  fullName: string = '';
 
   constructor(private userInfoServive: UserDataService) {}
 
@@ -23,5 +26,22 @@ export class PatientCredentialsComponent implements OnInit {
     this.userInfo.email = email.value;
     console.log(this.userInfo);
     this.userInfoServive.userInformation.next(this.userInfo);
+  }
+
+  // emailFunction(event: any) {
+  //   this.emailAddress = event.target.value.trim();
+  //   console.dir(this.emailAddress);
+  // }
+  newEmail(event: any) {
+    this.emailAddress = event.target.value.trim();
+    console.log(this.emailAddress);
+  }
+  newDOB(event: any) {
+    this.dateOfBirth = event.target.value.trim();
+    console.log(this.dateOfBirth);
+  }
+  newName(event: any) {
+    this.fullName = event.target.value.trim();
+    console.log(this.fullName);
   }
 }
