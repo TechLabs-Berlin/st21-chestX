@@ -1,0 +1,32 @@
+{
+  "name": "ST21-ChestX",
+  "version": "1.0.0",
+  "description": "Backend of ChestX, a Covid-19 checker from X-ray images",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.12.9",
+    "multer": "^1.4.2",
+    "nodemon": "^2.0.7",
+    "python-shell": "^3.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "heroku-postbuild": "cd frontend-chest-X && npm install --only=dev && npm install && npm run build"
+  },
+  "keywords": [
+    "node.js",
+    "express",
+    "mongodb",
+    "mongoose",
+    "Techlabs Berlin 2021"
+  ],
+  "author": "Omobolaji and Martin",
+  "license": "MIT"
+}

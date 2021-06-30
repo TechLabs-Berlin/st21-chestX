@@ -16,6 +16,6 @@ def label_func(fname):
         return 1
 
 model = load_learner(root_dir+"/data-science/binary_model.pkl")
-lable = model.predict(root_dir+"/backend-chest-X/public/"+img_location[0])
+lable = model.predict(root_dir+"/public/"+img_location[0])
 # printing the result into STDOUT for node.js to catch and process for front-end display
 print(lable[0])
