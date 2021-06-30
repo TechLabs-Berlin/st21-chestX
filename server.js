@@ -1,6 +1,10 @@
 const express = require("express");
 const app = express();
+const bodyParser = require("body-parser");
 const cors = require("cors");
+const methodOverride = require("method-override");
+
+// needed so that we can use a .env file
 require("dotenv").config();
 
 global.__basedir = __dirname;
@@ -18,10 +22,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// we are granting access to the image folder to be accessible when a request is made
-const path = require("path");
-app.use("/public", express.static(path.join("public")));
-
 const initRoutes = require("./app/routes/xRayFile.routes");
 
 // parse requests of content-type - application/json
@@ -30,6 +30,11 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 initRoutes(app);
+
+// we are granting access to the image folder to be accessible when a request is made
+const path = require("path");
+app.use(express.static(path.join(__dirname, "frontend-chest-X", "dist")));
+app.use("/public", express.static(path.join("public")));
 
 // Establishing connection to database
 mongoose
@@ -50,22 +55,22 @@ app.get("/", (req, res) => {
 });
 
 // connection to python script
-// app.get("/name", (req, res) => {
-//   let spawn = require("child_process").spawn;
-//   let process = spawn("python", [
-//     "./python-files/data_io_pipeline.py",
-//     req.query.firstname,
-//     req.query.lastname,
-//   ]);
-//   process.stdout.on("data", (data) => {
-//     res.send(data.toString());
-//     console.log(data);
-//   });
-// });
+app.get("/name", (req, res) => {
+  let spawn = require("child_process").spawn;
+  let process = spawn("python", [
+    "./python-files/data_io_pipeline.py",
+    req.query.firstname,
+    req.query.lastname,
+  ]);
+  process.stdout.on("data", (data) => {
+    res.send(data.toString());
+    console.log(data);
+  });
+});
 
 // setting up heroku
 // express.static is responsible for sending static files requests to the client
-app.use(express.static(path.join(__dirname, "frontend-chest-X", "build")));
+// app.use(express.static(path.join(__dirname, "frontend-chest-X", "build")));
 
 // responsible for sending the main index file back to the client
 app.get("*", (req, res) => {
