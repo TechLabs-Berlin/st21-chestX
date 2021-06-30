@@ -15,7 +15,7 @@ export class BackendApiService {
     const formData: FormData = new FormData();
     formData.append('file', file);
 
-    const req = new HttpRequest('POST', `${this.baseUrl}/upload`, formData, {
+    const req = new HttpRequest('POST', `/upload`, formData, {
       reportProgress: true,
       responseType: 'json',
     });
@@ -23,33 +23,10 @@ export class BackendApiService {
   }
 
   getFiles(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/files`);
+    return this.http.get(`/files`);
   }
 
   emptyDirectory(): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/files`);
+    return this.http.delete(`/files`);
   }
-
-  // getAll(): Observable<any> {
-  //   return this.http.get(baseUrl);
-  // };
-
-  // get(id): Observable<any> {
-  //   return this.http.get(`${baseUrl}/${id}`);
-  // };
-
-  // create(data): Observable <any> {
-  //   return this.http.post(baseUrl, data);
-  // };
-
-  // update(id, data): Observable <any> {
-  //   return this.http.put(`${baseUrl}/${id}`, data);
-  // }
-
-  // delete(id): Observable <any> {
-  //   return this.http.delete(`${baseUrl}/${id}`)
-  // }
-  // deleteAll(): Observable <any> {
-  //   return this.http.delete(baseUrl);
-  // }
 }
