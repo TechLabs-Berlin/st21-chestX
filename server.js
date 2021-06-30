@@ -50,18 +50,18 @@ app.get("/", (req, res) => {
 });
 
 // connection to python script
-app.get("/name", (req, res) => {
-  let spawn = require("child_process").spawn;
-  let process = spawn("python", [
-    "./python-files/data_io_pipeline.py",
-    req.query.firstname,
-    req.query.lastname,
-  ]);
-  process.stdout.on("data", (data) => {
-    res.send(data.toString());
-    console.log(data);
-  });
-});
+// app.get("/name", (req, res) => {
+//   let spawn = require("child_process").spawn;
+//   let process = spawn("python", [
+//     "./python-files/data_io_pipeline.py",
+//     req.query.firstname,
+//     req.query.lastname,
+//   ]);
+//   process.stdout.on("data", (data) => {
+//     res.send(data.toString());
+//     console.log(data);
+//   });
+// });
 
 // setting up heroku
 // express.static is responsible for sending static files requests to the client
@@ -69,7 +69,7 @@ app.use(express.static(path.join(__dirname, "frontend-chest-X", "build")));
 
 // responsible for sending the main index file back to the client
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend-chest-X", "build", "index.html"));
+  res.sendFile(path.join(__dirname, "frontend-chest-X", "dist", "index.html"));
 });
 
 app.listen(PORT, () => {
