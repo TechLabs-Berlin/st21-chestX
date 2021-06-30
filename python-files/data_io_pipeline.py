@@ -1,10 +1,13 @@
 from fastai.vision.all import load_learner, parent_label
 import os
 
-# Function for binary labelling
-root_dir = os.path.abspath('.')
-img_location = os.listdir("backend-chest-X/public/")
+def get_xray_image(location="backend-chest-X/public/"):
+    return os.listdir(location)
 
+def get_rootdir():
+    return os.path.abspath('.')
+
+# Function for fastai binary labelling 
 def label_func(fname):
     if parent_label(fname)=="Lung_Opacity":
         return 0
@@ -15,7 +18,13 @@ def label_func(fname):
     else:
         return 1
 
-model = load_learner(root_dir+"/data-science/binary_model.pkl")
-lable = model.predict(root_dir+"/public/"+img_location[0])
-# printing the result into STDOUT for node.js to catch and process for front-end display
-print(lable[0])
+def predict_label(model="/data-science/binary_model.pkl"):
+    print("---> ROOTDIR:", get_rootdir())
+    model = load_learner(get_rootdir()+model)
+    lable = model.predict(get_rootdir()+"/backend-chest-X/public/"+get_xray_image()[0])
+    # printing the result into STDOUT for node.js to catch and process for front-end display
+    return lable[0]
+
+if __name__ == "__main__":
+    p = predict_label()
+    print(p)
