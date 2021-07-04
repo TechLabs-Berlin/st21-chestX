@@ -62,10 +62,10 @@ app.get("/name", (req, res) => {
     req.query.firstname,
     req.query.lastname,
   ]);
-  process.stdout.on("data", (data) => {
-    res.send(data.toString());
-    console.log(data);
-  });
+  process.stdout.pipe(res);
+  process.stderr.on("data", (data) => {
+      console.log(data);
+    });
 });
 
 // setting up heroku
