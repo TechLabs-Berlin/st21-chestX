@@ -19,12 +19,10 @@ def label_func(fname):
         return 1
 
 def predict_label(model="/data-science/binary_model.pkl"):
-    #print("---> ROOTDIR:", get_rootdir())
     model = load_learner(get_rootdir()+model)
     lable = model.predict(get_rootdir()+"/backend-chest-X/public/"+get_xray_image()[0])
-    # printing the result into STDOUT for node.js to catch and process for front-end display
-    return lable[0]
+    return int(lable[0])
 
+# printing the result into STDOUT for node.js to catch and process for front-end display
 if __name__ == "__main__":
-    p = predict_label()
-    print(p)
+    print(predict_label())
