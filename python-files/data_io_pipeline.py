@@ -27,4 +27,7 @@ def predict_label(model="/data-science/binary_model.pkl"):
 
 if __name__ == "__main__":
     p = predict_label()
-    print(p)
+    if p == str(1):
+        print("COVID-19 diagnosis: positiv")
+    else:
+        print("COVID-19 diagnosis: negativ")
