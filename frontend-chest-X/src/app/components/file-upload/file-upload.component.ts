@@ -66,6 +66,11 @@ export class FileUploadComponent implements OnInit {
     this.userInformation = '';
     this.fileUploadService.emptyDirectory().subscribe((files) => {});
   }
+//TODO
+  getPrediction(): void {
+    return this.http.get('/name?file=' + filename);
+  }
+
   result(): void {
     const min = 60;
     const max = 100;
