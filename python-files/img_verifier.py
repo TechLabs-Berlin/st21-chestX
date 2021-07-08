@@ -10,7 +10,7 @@ def verify(location):
         print(x_image)
         try:
             img = Image.open(x_image)
-            img.verify() #check if file is image
+            img.verify() #check if file is a valid image, png only
             img.getdata()[0] #check if file is corrupted
         except OSError:
             return False
