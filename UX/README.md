@@ -4,9 +4,4 @@
 
 ## UX Design Idea
 
-Lorem ipsum ...
-
-
-## Importent links
-
-- [test-link](test.url)
+All information related to the design idea, can be found in the UX documentation PDF (in the folder)
