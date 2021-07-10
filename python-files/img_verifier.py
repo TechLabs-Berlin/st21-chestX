@@ -10,11 +10,11 @@ def verify(location):
         print(x_image)
         try:
             img = Image.open(x_image)
-            img.verify() #check if file is a valid image, png only
+            #img.verify() check if file is a valid image, png only
             img.getdata()[0] #check if file is corrupted
         except OSError:
             return False
         return True
 
 if __name__ == "__main__":
-    print(verify(str(os.path.abspath('.'))+'/backend-chest-X/public'))
+    print(verify(str(os.path.abspath('.'))+'/public'))
