@@ -63,6 +63,7 @@ export class FileUploadComponent implements OnInit {
     this.message = '';
     this.pickedImage = '';
     this.covidResult = '';
+    this.correctCovidResult = '';
     this.confidenceLevel = undefined;
     this.userInformation = '';
     this.fileUploadService.emptyDirectory().subscribe((files) => {});
