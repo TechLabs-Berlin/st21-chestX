@@ -21,6 +21,7 @@ export class FileUploadComponent implements OnInit {
   form!: FormGroup;
   pickedImage: string | undefined;
   covidResult = '';
+  correctCovidResult = '';
   confidenceLevel: number | undefined;
   userInformation: any;
 
@@ -111,10 +112,20 @@ export class FileUploadComponent implements OnInit {
       this.selectedFiles = undefined;
     }
   }
-
+  // when you are able to receive a valid result from the AI/DS model, you can replace all occurrences of 'covidResult' with
+  // 'correctCovidResult' in file-upload.component.html
   testResult() {
     this.fileUploadService.getResult().subscribe((val) => {
-      console.log(val);
+      if (val) {
+        if (val == 1) {
+          this.correctCovidResult = 'Positive';
+        } else if (val == 0) {
+          this.correctCovidResult = 'Negative';
+        }
+      } else {
+        console.log('No result received');
+      }
+      console.log(`the value you received is ${val}`);
     });
   }
 }
