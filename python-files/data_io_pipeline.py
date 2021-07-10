@@ -1,5 +1,6 @@
 from fastai.vision.all import load_learner, parent_label
 import os
+#from img_verifier import verify
 
 def get_xray_image(location="backend-chest-X/public/"):
     return os.listdir(location)
