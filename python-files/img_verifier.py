@@ -7,11 +7,11 @@ def get_rootdir():
 def verify(location):
     '''Function to verifie x-ray images from a given foulder'''
     for x_image in os.listdir(location):
-        print(x_image)
         try:
             img = Image.open(x_image)
             #img.verify() check if file is a valid image, png only
-            img.getdata()[0] #check if file is corrupted
+            print("START")
+            print(img.getdata()[0]) #check if file is corrupted
         except OSError:
             return False
         return True
