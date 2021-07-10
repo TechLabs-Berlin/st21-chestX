@@ -56,16 +56,16 @@ app.get("/", (req, res) => {
 
 // connection to python script
 app.get("/name", (req, res) => {
+  let newData;
   let spawn = require("child_process").spawn;
-  let process = spawn("python", [
-    "./python-files/data_io_pipeline.py",
-    req.query.firstname,
-    req.query.lastname,
-  ]);
+  let process = spawn("python", ["./python-files/data_io_pipeline.py"]);
+  res.send(newData);
+  console.log(newData);
   process.stdout.pipe(res);
   process.stderr.on("data", (data) => {
-      console.log(data);
-    });
+    console.log(data.toString());
+    newData = data.toString();
+  });
 });
 
 // setting up heroku

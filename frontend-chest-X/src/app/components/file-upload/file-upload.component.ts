@@ -79,6 +79,7 @@ export class FileUploadComponent implements OnInit {
   }
 
   upload(): void {
+    this.testResult();
     if (this.selectedFiles) {
       const file: File | null = this.selectedFiles.item(0);
       if (file) {
@@ -109,5 +110,11 @@ export class FileUploadComponent implements OnInit {
       }
       this.selectedFiles = undefined;
     }
+  }
+
+  testResult() {
+    this.fileUploadService.getResult().subscribe((val) => {
+      console.log(val);
+    });
   }
 }
