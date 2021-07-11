@@ -74,6 +74,7 @@ Distribution of view angle in which x-ray images were taken.
 Image DS2:
 Distribution of image modality of the dataset images.
 
+
 Other findings from the data analysis generally helped to broaden our understanding about the COVID-19 medical conditions, but also guided the decision of a smarter implementation for splitting the dataset into test and training data. To have an equally distributed data set from the start that would similarly include data from positive and negative cases, but also include a positive and negative survival rate was an outcome of this analysis.
 
 ![alt text](https://github.com/TechLabs-Berlin/st21-chestX/blob/main/Blog%20Images/DS3.png)
@@ -86,7 +87,7 @@ Distribution of survival rate of patients, found in the data set.
 
 
 Image DS4:
-Python script for execution of COVID-19 prediction and handover of result \&lt;int\&gt; to web backend.
+Python script for execution of COVID-19 prediction and handover of result to web backend.
 
 After the first phase of data analysis the useful environment of Jupyter notebooks had to give way to simple Python scripts that are easier to implement into the whole pipeline of data cleaning, preparation and web application for user interaction. However additional processes that are executed in the background of the web application include the validation of uploaded x-ray images and the connection between the AI model, which predicts the binary result of a COVID-19 infection on the chest x-ray images and the web backend.
  Another important point function we worked on as a DS team was making sure that uploaded pictures are valid. That is why we also implemented an image verification function using python and the PIL package, to make sure uploaded images are not corrupted.
