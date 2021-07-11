@@ -9,10 +9,13 @@ Members:
 - Mentor: Aleksandr Shubenkov
 - DS: Heike Quosdorf, Jason Choufani, Assumpta Ojukwu and Fabian Barulli
 - AI: Kevin Gräf and Ehiz Ali
-- UX: Sofia Sabarini and Nina Thom ![](RackMultipart20210711-4-peirop_html_292edfa081cc2787.gif)- WD: Omobolaji Koyi and Martin Schöne
+- UX: Sofia Sabarini and Nina Thom 
+- WD: Omobolaji Koyi and Martin Schöne
+
 
 # 1. Project summary
 
+At the end of 2019, the first known case of the SARS-CoV-2 was identified. Soon after, the contagious disease started spreading all over the world, leading to the ongoing pandemic we are currently living through today.Several testing methods have been developed to diagnose the disease, such as the PCR test which requires you to go to hospital or quick tests that are found in stores. The latter, though convenient, can lead to inaccurate results and produces plastic waste.
 ChestX is a TechLabs Berlin project that aims to detect COVID-19 infection by processing chest X-ray images. To support medical decision making, the ChestX team applied AI techniques for object detection &amp; classification, as well as data science methods. Metadata provided alongside the X-ray images can be analysed to provide doctors with more meaningful diagnostic assistance. This solution offers an alternative diagnostic tool for COVID-19 that is safe, secure, waste free and causes no discomfort to patients.
 
 #
