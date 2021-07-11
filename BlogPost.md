@@ -25,8 +25,7 @@ Regarding the frontend of the Chest X App, we started by putting together the ma
 
 Bolaji and I worked together smoothly and met up (digitally) on almost a weekly basis and discussed the further steps and open topics. Often Bolaji helped me out with code not working or errors in vs code which was extremely helpful since getting into a coding project from zero felt oftentimes a bit overwhelming. In total the project felt like a good starting project that combined all the different disciplines of Techlabs.
 
-![](RackMultipart20210711-4-peirop_html_18d993b472ce8b11.png)
- I_mage WD1: Frontend json_
+![alt text](https://github.com/TechLabs-Berlin/st21-chestX/blob/main/Blog%20Images/WD.PNG) I_mage WD1: Frontend json_
 
 # 3. AI-Track
 
