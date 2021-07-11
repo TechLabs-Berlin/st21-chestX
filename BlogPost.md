@@ -34,12 +34,12 @@ Image WD1: Frontend json.
 
 # 3. AI-Track
 
-My part of the project was to train a binary classification model to detect COVID-19 from chest x-ray images.
+Our part of the project was to train a binary classification model to detect COVID-19 from chest x-ray images.
 
 In the following, we will go through our progressions during the project phase, some of the obstacles that we encountered and the solutions that we implemented to push through them.
 
-- Work environment: Worked with Google Colab in the beginning but because their free GPU service is often unavailable we switched to Kaggle.
-- Dataset: I started with a rather small dataset from GitHub which only contained about 300 relevant training images. The resulting model had poor performance. The search for a larger dataset was easy but finding one that was well organised not so much. Thankfully we found a very useful and structured Kaggle dataset. Before I discovered the integrated fastAI function of taking labels from the parent directory, Heike coded this from scratch.
+- Work environment: We Worked with Google Colab in the beginning but because their free GPU service is often unavailable we switched to Kaggle.
+- Dataset: W started with a rather small dataset from GitHub which only contained about 300 relevant training images. The resulting model had poor performance. The search for a larger dataset was easy but finding one that was well organised not so much. Thankfully we found a very useful and structured Kaggle dataset. Before we discovered the integrated fastAI function of taking labels from the parent directory, Heike coded this from scratch.
 
 ![alt text](https://github.com/TechLabs-Berlin/st21-chestX/blob/main/Blog%20Images/image%20(1).png)
  
@@ -51,8 +51,8 @@ In the following, we will go through our progressions during the project phase, 
 
 Image AI2:Model accuracy results.
 
-- Team issues: Unfortunately, my AI team member wasn&#39;t able to contribute to the project due to private reasons.
-- Find tasks for DS team members: What can the DS team members contribute besides training a computer vision model? But I had to sort out my responsibilities first and review key points from the academic phase.
+- Team issues: Unfortunately, our AI team member wasn't able to contribute to the project due to private reasons.
+- Find tasks for DS team members: Finding a way for the DS team members to support AI team and contribute to the project besides training a computer vision model. But we had to sort out our responsibilities first and review key points from the academic phase.
 
 #
 
