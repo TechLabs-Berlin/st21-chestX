@@ -10,9 +10,8 @@ def verify(location):
         try:
             img = Image.open(x_image)
             print(img.getdata()[0]) #check if file is corrupted
-        except OSError:
-            return False
-        return True
+        except (IOError, OSError) as e:
+            return e
 
 if __name__ == "__main__":
     print(verify(str(os.path.abspath('.'))+'/public'))
