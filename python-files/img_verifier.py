@@ -5,12 +5,10 @@ def get_rootdir():
     return os.path.abspath('.')
 
 def verify(location):
-    '''Function to verifie x-ray images from a given foulder'''
+    '''Function to verify x-ray image corruption from a given folder'''
     for x_image in os.listdir(location):
         try:
             img = Image.open(x_image)
-            #img.verify() check if file is a valid image, png only
-            print("START")
             print(img.getdata()[0]) #check if file is corrupted
         except OSError:
             return False
